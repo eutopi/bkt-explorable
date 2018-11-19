@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <title>
+        Bayesian Knowledge Tracing
+      </title>
+      <meta property="og:title" content="Bayesian Knowledge Tracing">
+    <meta charset="utf-8">
+    <meta property="og:type" content="article">
+
+      <meta property="og:description" content="Short description of your project">
+      <meta property="description" content="Short description of your project">
+
+
+    <link rel="stylesheet" href="static/idyll_styles.css">
+  </head>
+  <body>
+    <div id="idyll-mount"><div data-reactroot=""><div class="idyll-root"><div style="max-width:600px;margin-top:0;margin-right:0;margin-bottom:0;margin-left:50px" class=" idyll-text-container"></div><div style="position:fixed" class="fixed"><div><img src="static/images/static.svg" idyll="[object Object]"/></div></div><div class="idyll-scroll" id="idyll-scroll-0" style="position:relative"><div style="max-width:600px;margin-top:0;margin-right:0;margin-bottom:0;margin-left:50px" class=" idyll-text-container"><div class="idyll-scroll-text"><h3>Bayesian Knowledge Tracing</h3><p><em>an explorable explainable</em>
+  <br/>
+  by Tongyu Zhou, Haoyu Sheng, Iris Howley</p><div class="idyll-step ">
+  Bayesian knowledge tracing (BKT) is an AI algorithm
+  used in intelligent tutoring systems to model a learner&#x27;s
+  mastery of the skill being taught. Let us first consider this algorithm
+  (BKT) in the context of an &quot;alchemy&quot; metaphor. Think of the large beaker
+  as representative of the overall mastery of the student for the one skill of interest.
+  The test tubes are representative of the factors that go into
+  calculating mastery.
+  </div><div class="idyll-step "><p>
+  These factors are called <em>parameters</em>. BKT uses a total of 4
+  different parameters. From left to right, they are:<br/>1) <strong>init</strong> : probability of learner knowing the skill beforehand <br/>2) <strong>transit</strong> : probability of learner learning the skill after application<br/>3) <strong>slip</strong> : probability of learner messing up when using a known skill<br/>4) <strong>guess</strong> : probability of learner has a lucky guess<br/></p></div><div class="idyll-step "><p>
+  The weights these parameters carry in the equation are determined by
+  the person applying the algorithm.<br/><br/>
+  Slide the four values below to change the probability:<br/>
+  Init: <span class="idyll-dynamic">0.30</span>
+  Transit: <span class="idyll-dynamic">0.30</span>
+  Slip: <span class="idyll-dynamic">0.10</span>
+  Guess: <span class="idyll-dynamic">0.30</span><br/>
+  Total probability: <span>1.00</span><br/></p><p><button>
+  Toggle formula
+  </button><br/><div style="display:none"><img src="static/images/eq.png" width="200px" idyll="[object Object]"/></div><br/><em>P(slip)</em> &lt;= 0.1 and <em>P(guess)</em> &lt;= 0.3 to make realistic predictions<br/>
+  When fitting parameters, we choose combinations that give the best sum-of-squares residual
+  </p></div><div class="idyll-step "><p>
+  Before taking the actual evaluation (or after pre-test), the probability
+  of a student mastering the skill is equal to the <em>init</em> probability:<br/><img src="static/images/eq1.png" width="150px" idyll="[object Object]"/><br/><br/><div class=" regl"></div>
+  Try assigning values to the <em>init</em> variable:<br/><input type="range" value="5" min="0" max="95" step="1"/><span>5.00</span><br/>
+  Note that the greater the value (the more the learner knows), the faster
+  the gauge fills up (and the faster we reach full mastery)!</p></div><div class="idyll-step "><p>
+  The algorithm relies on something called “conditional probability.” That is,
+  depending on whether a learner answers a current question correctly or incorrectly,
+  the formulas we use to calculate their mastery for that state will be different!<br/><br/><button><div>
+    Incorrect
+  </div><div style="display:none">
+    Correct
+  </div></button><div style="display:none"><img src="static/images/eq2correct.png" width="420px" idyll="[object Object]"/><br/></div><div><img src="static/images/eq2wrong.png" width="420px" idyll="[object Object]"/></div></p></div><div class="idyll-step "><p>
+  Continuing with the notion of “conditional probability,” the mastery of a current
+  state also depends on the mastery of a previous state. Try toggling the
+  series of answers to see what happens when they are correct/incorrect.<br/><br/><button><div>
+      Correct
+    </div><div style="display:none">
+      Incorrect
+    </div></button><button><div>
+      Correct
+    </div><div style="display:none">
+      Incorrect
+    </div></button><button><div>
+      Correct
+    </div><div style="display:none">
+      Incorrect
+    </div></button><button><div>
+      Correct
+    </div><div style="display:none">
+      Incorrect
+    </div></button><button><div>
+      Correct
+    </div><div style="display:none">
+      Incorrect
+    </div></button><br/><br/>
+  Mastery percentage growth rate:
+  <div><div style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative" class="VictoryContainer"><svg width="450" height="300" role="img" aria-labelledby="victory-container-1-title victory-container-1-desc" viewBox="0 0 450 300" style="pointer-events:all;width:100%;height:100%"><g role="presentation"><path d="M -147, 250
+      L -147, 250
+      L -103, 250
+      L -103, 250
+      L -147, 250
+      z" style="fill:#252525;stroke:#252525;y0:0;_x:0;_y:0;_y1:0;_y0:0;padding:8px;stroke-width:0" role="presentation" shape-rendering="auto"></path><path d="M 203, 250
+      L 203, 250
+      L 247, 250
+      L 247, 250
+      L 203, 250
+      z" style="fill:#252525;stroke:#252525;y0:0;_x:1px;_y:0;_y1:0;_y0:0;padding:8px;stroke-width:0" role="presentation" shape-rendering="auto"></path></g><g role="presentation"><line x1="50" x2="400" y1="250" y2="250" style="stroke:#252525;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><g role="presentation"><line x1="85" x2="85" y1="250" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="85" x2="85" y1="250" y2="251" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="11.969999999999999" x="85" y="261"><tspan x="85" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="middle">0.6</tspan></text></g><g role="presentation"><line x1="155" x2="155" y1="250" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="155" x2="155" y1="250" y2="251" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="11.969999999999999" x="155" y="261"><tspan x="155" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="middle">0.8</tspan></text></g><g role="presentation"><line x1="225" x2="225" y1="250" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="225" x2="225" y1="250" y2="251" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="11.969999999999999" x="225" y="261"><tspan x="225" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="middle">1.0</tspan></text></g><g role="presentation"><line x1="295" x2="295" y1="250" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="295" x2="295" y1="250" y2="251" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="11.969999999999999" x="295" y="261"><tspan x="295" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="middle">1.2</tspan></text></g><g role="presentation"><line x1="364.99999999999994" x2="364.99999999999994" y1="250" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="364.99999999999994" x2="364.99999999999994" y1="250" y2="251" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="11.969999999999999" x="364.99999999999994" y="261"><tspan x="364.99999999999994" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="middle">1.4</tspan></text></g></g><g role="presentation"><line x1="50" x2="50" y1="50" y2="250" style="stroke:#252525;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><g role="presentation"><line x1="50" x2="400" y1="216.66666666666669" y2="216.66666666666669" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="216.66666666666669" y2="216.66666666666669" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="216.66666666666669"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">5</tspan></text></g><g role="presentation"><line x1="50" x2="400" y1="183.33333333333334" y2="183.33333333333334" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="183.33333333333334" y2="183.33333333333334" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="183.33333333333334"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">10</tspan></text></g><g role="presentation"><line x1="50" x2="400" y1="150" y2="150" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="150" y2="150" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="150"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">15</tspan></text></g><g role="presentation"><line x1="50" x2="400" y1="116.66666666666669" y2="116.66666666666669" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="116.66666666666669" y2="116.66666666666669" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="116.66666666666669"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">20</tspan></text></g><g role="presentation"><line x1="50" x2="400" y1="83.33333333333331" y2="83.33333333333331" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="83.33333333333331" y2="83.33333333333331" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="83.33333333333331"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">25</tspan></text></g><g role="presentation"><line x1="50" x2="400" y1="50" y2="50" style="stroke:transparent;fill:transparent;pointer-events:none" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><line x1="50" x2="49" y1="50" y2="50" style="stroke:transparent;fill:transparent;size:1px" role="presentation" shape-rendering="auto" vector-effect="non-scaling-stroke"></line><text dx="0" dy="4.97" x="39" y="50"><tspan x="39" dx="0" style="fill:#252525;font-size:14px;font-family:&#x27;Gill Sans&#x27;, &#x27;Gill Sans MT&#x27;, &#x27;Ser­avek&#x27;, &#x27;Trebuchet MS&#x27;, sans-serif;stroke:transparent;letter-spacing:normal;padding:10px" text-anchor="end">30</tspan></text></g></g></svg><div style="z-index:99;position:absolute;top:0;left:0;width:100%;height:100%"><svg width="450" height="300" viewBox="0 0 450 300" style="overflow:visible;width:100%;height:100%"></svg></div></div></div>
+  x-axis: next x questions<br/>
+  y-axis: percentage increase<br/><br/><em>Note that even when a learner gets everything wrong, the mastery still
+  increases, albeit by a little bits</em>
+  </p></div><div class="idyll-step "> The learner continues to answer questions...   </div><div class="idyll-step "><p> Until?<br/><br/><input type="checkbox" value="false"/> they have answered as least one question<br/><input type="checkbox" value="false"/> they have achieved at least 95% mastery<br/><input type="checkbox" value="false"/> they have a streak of 10 correct answers<br/>
+  The skill is <span>unmastered</span></p><div style="display:none"><p>
+  Congrats on finishing the explainable!<br/> Your access code is 66666.
+  </p></div></div></div></div></div></div></div></div>
+    <script src="static/idyll_index.js"></script>
+  </body>
+</html>
